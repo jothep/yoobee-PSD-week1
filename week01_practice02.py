@@ -1,7 +1,5 @@
 import numpy as np
 
-temperature = [18.5, 19, 20, 25.0, 2, 30, 13.9]
-
 def calculate_average(values):
 
     average_score = round(sum(values)/len(values),1)
@@ -31,6 +29,7 @@ def find_the_day(values):
     print("the days where the temp excedded 20:", indices)
 
 if __name__ == "__main__":
+    temperature = [18.5, 19, 20, 25.0, 2, 30, 13.9]
     print("The temperatures of the week are:",temperature)
 
     calculate_average(temperature)

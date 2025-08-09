@@ -10,14 +10,14 @@ class StringManipulator:
         return length
 
     def set_String(self):
-        return self.text.capitalize()
+        return self.text.upper()
 
 name = StringManipulator("example")
 
 result = name.find_character("x")
 length = name.get_length()
-result_Cap = name.set_String()
+result_Upper = name.set_String()
 
 print(length)
-print(result_Cap)
+print(result_Upper)
 

@@ -1,4 +1,7 @@
 class StringManipulator:
+
+#Using __init__ can easily initialize, define internal variables, and quickly call internal variables when using methods
+
     def find_character(text, char):
         return text.find(char)
     

@@ -13,9 +13,9 @@ class StringManipulator:
 
 name = StringManipulator()
 string1 = "example"
-result = name.find_character(text=string1, char="x")
-length = name.get_length(text=string1)
-result_Upper = name.set_String(text=string1)
+result = name.find_character(string1, "x")
+length = name.get_length(string1)
+result_Upper = name.set_String(string1)
 
 print(result)
 print(length)

@@ -18,6 +18,7 @@ result = name.find_character("x")
 length = name.get_length()
 result_Upper = name.set_String()
 
+print(result)
 print(length)
 print(result_Upper)
 

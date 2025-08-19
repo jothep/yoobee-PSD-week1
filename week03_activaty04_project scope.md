@@ -1,7 +1,1 @@
-Project scope (short paragraph)Write a  story that defines the purpose and scope of the database. Describe the main entities (e.g., students, lecturers, etc).
-
-In order to manage YB college’s students, lecturers, grades, projects and other resources, it is necessary to use a database and create tables for corresponding management.
-It need to create a student table containing a unique student ID, name, address, and associated class ID;
-It need to create a class table containing a unique class ID and description;
-It need to create a lecture table containing a unique lecture ID, name, associated class ID, and subject ID;
-It need to create a subject table containing a unique subject ID, subject name, and associated class ID.
+YB College needs a relational database to manage students, classes, subjects, and lecturers, and to track both class offerings and student enrollments. The core entities are Student (id, name, address, class_id), Class (id, class_name, description), Subject (id, subject_name), and Lecturer (id, lecturer_name, subject_id). Each student belongs to exactly one class; classes offer many subjects via the CLASS_SUBJECTS junction table; and students enroll in many subjects via the STUDENTS_SUBJECTS junction table. Each lecturer is associated with exactly one subject. This schema supports tasks such as listing a class’s subjects, finding the students taking a subject, and assigning lecturers to the subjects they teach.

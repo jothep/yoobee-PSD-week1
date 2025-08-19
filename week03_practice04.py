@@ -17,7 +17,7 @@ def init_db():
     return DB_FILE
 
 def create_connection():
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("data/users.db")
     return conn
 
 def create_table():
@@ -79,38 +79,53 @@ def menu():
 def create_defined_table():
     conn = create_connection()
     cursor = conn.cursor()
+    conn.execute("PRAGMA foreign_keys = ON;")
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS CLASS (
             CLASS_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            CLASS_NAME TEXT,
-            DESCRIPTION TEXT NOT NULL
+            CLASS_NAME TEXT NOT NULL,
+            DESCRIPTION TEXT
         );
     ''')
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS SUBJECTS (
             SUBJECT_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            SUBJECT_NAME TEXT NOT NULL,
-            CLASS_ID     INTEGER NOT NULL,
-            FOREIGN KEY (CLASS_ID)    REFERENCES CLASS(CLASS_ID)       ON DELETE RESTRICT
+            SUBJECT_NAME TEXT NOT NULL
         );
     ''')
     cursor.execute('''
-        CREATE TABLE IF NOT EXISTS LECTURE (
-            LECTURE_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            LECTURE_NAME TEXT NOT NULL,
-            CLASS_ID     INTEGER,
-            SUBJECT_ID   INTEGER,
-            FOREIGN KEY (CLASS_ID)    REFERENCES CLASS(CLASS_ID)       ON DELETE RESTRICT,
-            FOREIGN KEY (SUBJECT_ID) REFERENCES SUBJECTS(SUBJECT_ID)
+        CREATE TABLE IF NOT EXISTS LECTURER (
+            LECTURER_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            LECTURER_NAME TEXT NOT NULL,
+            SUBJECT_ID   INTEGER NOT NULL,
+            FOREIGN KEY (SUBJECT_ID) REFERENCES SUBJECTS(SUBJECT_ID) ON UPDATE CASCADE  ON DELETE RESTRICT
         );
     ''')
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS STUDENT (
             STUDENT_ID INTEGER PRIMARY KEY AUTOINCREMENT,
             STUDENT_NAME TEXT NOT NULL,
-            ADDRESS TEXT NOT NULL,
-            CLASS_ID     INTEGER,
-            FOREIGN KEY (CLASS_ID) REFERENCES CLASS(CLASS_ID)       ON DELETE RESTRICT
+            ADDRESS TEXT,
+            CLASS_ID     INTEGER NOT NULL,
+            FOREIGN KEY (CLASS_ID) REFERENCES CLASS(CLASS_ID)       ON UPDATE CASCADE   ON DELETE RESTRICT
+        );
+    ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS STUDENTS_SUBJECTS (
+            STUDENT_ID INTEGER NOT NULL,
+            SUBJECT_ID INTEGER NOT NULL,
+            PRIMARY KEY (STUDENT_ID, SUBJECT_ID),
+            FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(STUDENT_ID) ON UPDATE CASCADE   ON DELETE RESTRICT,
+            FOREIGN KEY (SUBJECT_ID) REFERENCES SUBJECTS(SUBJECT_ID) ON UPDATE CASCADE   ON DELETE RESTRICT
+        );
+    ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS CLASS_SUBJECTS (
+            CLASS_ID INTEGER NOT NULL,
+            SUBJECT_ID INTEGER NOT NULL,
+            PRIMARY KEY (CLASS_ID, SUBJECT_ID),
+            FOREIGN KEY (CLASS_ID) REFERENCES CLASS(CLASS_ID) ON UPDATE CASCADE   ON DELETE RESTRICT,
+            FOREIGN KEY (SUBJECT_ID) REFERENCES SUBJECTS(SUBJECT_ID) ON UPDATE CASCADE   ON DELETE RESTRICT
         )
     ''')
     
@@ -128,8 +143,8 @@ def inspect_schema():
     conn.close()
 
 def main():
-    #print("DB created at:", init_db())
-    #create_defined_table()
+    print("DB created at:", init_db())
+    create_defined_table()
     inspect_schema()
     
 if __name__ == "__main__":

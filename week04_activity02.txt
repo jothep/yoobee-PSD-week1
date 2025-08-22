@@ -1,3 +1,5 @@
+This system supports core college workflows. Students can log in, enroll in courses, and submit assignments. Lecturers can log in, manage their assigned courses, and grade students’ submissions. Administrators manage the system by creating user profiles and granting access so that students and lecturers can sign in.
+
 the number of actors is 3
 student - enroll in course and submit assignment, and need to login to the system
 lecturer - enroll in course as lecturer and grade students' assigments, also need to login to system 

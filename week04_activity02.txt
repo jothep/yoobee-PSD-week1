@@ -1,0 +1,11 @@
+the number of actors is 3
+student - enroll in course and submit assignment, and need to login to the system
+lecturer - enroll in course as lecturer and grade students' assigments, also need to login to system 
+administrator - manage the system, make profile to let student and lecturer can login
+
+use cases:
+login - has personal profile and can login to the system
+enroll in course - attend to the course
+submit assignment - finish the assignment and submit
+grade assignment - to check and judge the grade of assigments
+manage system - can make profile for users and set users to login

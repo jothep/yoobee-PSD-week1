@@ -1,13 +1,29 @@
-This system supports core college workflows. Students can log in, enroll in courses, and submit assignments. Lecturers can log in, manage their assigned courses, and grade students’ submissions. Administrators manage the system by creating user profiles and granting access so that students and lecturers can sign in.
+This system supports core college workflows. 
+Students can register, enroll in subjects, submit assignments and view grades and feedback.
+Lecturers can generate subject, grade students’ assignments, grade students’ submissions and give feedback to students.
+Administrators manage the system of user profiles, class and subjects, users' permission, and reset passowrd for all users.
 
 the number of actors is 3
-student - enroll in course and submit assignment, and need to login to the system
-lecturer - enroll in course as lecturer and grade students' assigments, also need to login to system 
-administrator - manage the system, make profile to let student and lecturer can login
+student 
+-   
+    register
+    login/logout
+    enroll in subject 
+    submit assignments
+    view grades and feedback
+    change password
 
-use cases:
-login - has personal profile and can login to the system
-enroll in course - attend to the course
-submit assignment - finish the assignment and submit
-grade assignment - to check and judge the grade of assigments
-manage system - can make profile for users and set users to login
+lecturer 
+- 
+    login/logout
+    create subject
+    grade students' assigments
+    give feedback to student
+    change password
+     
+administrator 
+- 
+    login/logout
+    manage class and subjects
+    manage users, include grant permission and delete user
+    reset password for all users

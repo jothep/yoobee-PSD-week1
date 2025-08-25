@@ -15,15 +15,13 @@ Student
 Lecturer 
 - 
     Login/Logout
-    Manage class
-    Publish/manage assignments
+    Create/Manage subject
+    Publish/Manage assignments
     Grade student submissions
-    Give feedback to students
     Change password
      
 Admin
 - 
     Login/Logout
-    Manage classes and subjects
-    Manage users, create or disable account, grant and revoke permissions, delete users
+    Manage users, setup class info, create or disable account, grant and revoke permissions, delete users
     Reset password for all users

@@ -1,29 +1,29 @@
-This system supports core college workflows. 
-Students can register, enroll in subjects, submit assignments and view grades and feedback.
-Lecturers can generate subject, grade students’ assignments, grade students’ submissions and give feedback to students.
-Administrators manage the system of user profiles, class and subjects, users' permission, and reset passowrd for all users.
+This system supports YB college workflows. 
+Students can register, enroll in subjects, submit assignments, and view grades and feedback.
+Lecturers can manage class, publish assigments, grade student submissions, and give feedback.
+Administrators manage user profiles, classes and subjects, user permissions, and can reset passowrd for all users.
 
-the number of actors is 3
-student 
+Student 
 -   
-    register
-    login/logout
-    enroll in subject 
-    submit assignments
-    view grades and feedback
-    change password
+    Register
+    Login/Logout
+    Enroll in subject 
+    Submit assignments
+    View grades and feedback
+    Change password
 
-lecturer 
+Lecturer 
 - 
-    login/logout
-    create subject
-    grade students' assigments
-    give feedback to student
-    change password
+    Login/Logout
+    Manage class
+    Publish/manage assignments
+    Grade student submissions
+    Give feedback to students
+    Change password
      
-administrator 
+Admin
 - 
-    login/logout
-    manage class and subjects
-    manage users, include grant permission and delete user
-    reset password for all users
+    Login/Logout
+    Manage classes and subjects
+    Manage users, create or disable account, grant and revoke permissions, delete users
+    Reset password for all users
